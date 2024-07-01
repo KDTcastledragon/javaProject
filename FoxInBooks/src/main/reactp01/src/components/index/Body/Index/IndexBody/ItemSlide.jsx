@@ -13,10 +13,10 @@ function SlideItemBestSeller() {
             .get('/product/bestSeller')
             .then((response) => {
                 setBestSellerList(response.data.slice(0, 5));
-                console.log(`서버연결 성공 =>`, response.data);
+                console.log(`베스트셀러 가져오기 성공 =>`, response.data);
             })
             .catch((err) => {
-                alert(`서버연결 실패 => ${err.message}`);
+                alert(`베스트셀러 가져오기 실패 => ${err.message}`);
             });
     }, []);
 
@@ -79,10 +79,10 @@ function SlideAllItem() {
             .get('/product/selectAllList')
             .then((response) => {
                 setProductList(response.data.slice(0, 20));
-                console.log(`서버연결 성공 =>`, response.data);
+                console.log(`모든 상품 가져와서 20개로 썰기 =>`, response.data);
             })
             .catch((err) => {
-                alert(`서버연결 실패 => ${err.message}`);
+                alert(`모든 상품 가져와서 20개로 썰기 실패 => ${err.message}`);
             });
     }, []);
 
@@ -146,7 +146,7 @@ function BookItem() {
             .get('/product/selectAllList')
             .then((response) => {
                 setProductList(response.data);
-                console.log(`서버연결 성공 =>`, response.data);
+                console.log(`도서용품 =>`, response.data);
             })
             .catch((err) => {
                 alert(`서버연결 실패 => ${err.message}`);
