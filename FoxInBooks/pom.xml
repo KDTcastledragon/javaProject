@@ -122,6 +122,12 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			
+			 <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <!-- Remove version to inherit from parent -->
+            </plugin>
 		</plugins>
 	</build>
 
