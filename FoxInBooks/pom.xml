@@ -39,16 +39,20 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		
 		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
-		</dependency> -->
+		</dependency> -->           <!-- war가 아닌 jar를 사용하기에 주석처리 -->
+		
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 		<!-- *** JDBC : spring-boot-starter-jdbc 를 사용_MVC 와 다름 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -61,6 +65,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.28</version>
 		</dependency>
+		
 		<!-- JSP 사용을 위한 Tomcat JSP엔진 추가 -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
@@ -110,7 +115,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-				<!-- <mainClass>com.fox.fib.FibApplication</mainClass> -->
+				<mainClass>com.fox.fib.FibApplication</mainClass>
 					<image>
 						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
 					</image>
@@ -126,7 +131,6 @@
 			 <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <!-- Remove version to inherit from parent -->
             </plugin>
 		</plugins>
 	</build>
