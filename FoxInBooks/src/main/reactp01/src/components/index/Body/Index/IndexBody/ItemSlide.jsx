@@ -4,7 +4,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { book_list_context } from '../../../../Data/ProductOriginData_context'
 
-// BestSeller
+// ============================================첫번째 bestSeller ===================================================================
 function SlideItemBestSeller() {
     const [bestSellerList, setBestSellerList] = useState([]);
 
@@ -69,7 +69,7 @@ function SlideItemBestSeller() {
     );
 }
 
-// 모든 리스트 보기
+// ============================================두번째 selectAllList ===================================================================
 function SlideAllItem() {
 
     const [productList, setProductList] = useState([]);
@@ -78,7 +78,7 @@ function SlideAllItem() {
         axios
             .get('/product/selectAllList')
             .then((response) => {
-                setProductList(response.data.slice(0, 20));
+                setProductList(response.data);
                 console.log(`모든 상품 가져와서 20개로 썰기 =>`, response.data);
             })
             .catch((err) => {

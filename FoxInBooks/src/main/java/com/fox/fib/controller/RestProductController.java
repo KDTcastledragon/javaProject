@@ -32,9 +32,37 @@ public class RestProductController {
 
 	@GetMapping("/selectAllList")
 	public ResponseEntity<?> selectAllList() {
-		List<Product> selectedAllList = productservice.selectAllList();
-		return ResponseEntity.ok(selectedAllList);
+		try {
+			List<Product> selectedAllList = productservice.selectListBestSeller();
+
+			log.info(" selectAllList 확인 : " + selectedAllList.toString());
+
+			return ResponseEntity.ok(selectedAllList);
+
+		} catch (Exception e) {
+			log.info(" AllList_FAIL : " + e.toString());
+			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("AllList ERROR");
+
+		}
 	}
+
+	@GetMapping("/bestSeller")
+	public ResponseEntity<?> bestSeller() {
+
+		try {
+			List<Product> resultList = productservice.selectListBestSeller();
+
+			log.info(" bestSeller 확인 : " + resultList.toString());
+
+			return ResponseEntity.ok(resultList);
+
+		} catch (Exception e) {
+			log.info(" best_FAIL : " + e.toString());
+			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("bestSeller ERROR");
+
+		}
+	}
+
 
 	@GetMapping("/productSelectOne")
 	public Product productSelectOne(@RequestParam(name = "productOneParam") String product_code, Product entity) {
@@ -194,22 +222,7 @@ public class RestProductController {
 
 	// ==========================================================================================
 
-	@GetMapping("/bestSeller")
-	public ResponseEntity<?> bestSeller() {
 
-		try {
-			List<Product> resultList = productservice.selectListBestSeller();
-
-			log.info("[203] bestSeller 확인 : " + resultList.toString());
-
-			return ResponseEntity.ok(resultList);
-
-		} catch (Exception e) {
-			log.info(" 삭제 실패 : " + e.toString());
-			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("bestSeller 오류");
-
-		}
-	}
 
 	// ======================================================================================================
 

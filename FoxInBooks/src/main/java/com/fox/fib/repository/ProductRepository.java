@@ -14,8 +14,14 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	@Override
 	Page<Product> findAll(Pageable pageable);
 
-	@Query("select p from Product p")
+//	@Query("select p from Product p")
+//	List<Product> selectAllList();
+
+	@Query(value = "SELECT * FROM product p", nativeQuery = true)
 	List<Product> selectAllList();
+
+	@Query(value = "SELECT * FROM product p WHERE p.protype = 1 ORDER BY p.sellcount DESC LIMIT 20", nativeQuery = true)
+	List<Product> selectListBestSeller();
 
 	// [2] 리액트 메소드. ==================================================================================================================
 
@@ -59,20 +65,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 		+ "AND (:category = '0' OR p.category = :category) AND (:genre = '0' OR p.genre = :genre) and (p.price between :minprice and :maxprice) order by p.price asc")
 	List<Product> selectListLimitedPrice(@Param("domestic") String domestic, @Param("category") String category,
 		@Param("genre") String genre, @Param("minprice") int minprice, @Param("maxprice") int maxprice); // 7.제한가격검색
-
-
-	@Query(value = "SELECT * FROM product p WHERE p.protype = 1 ORDER BY p.sellcount DESC LIMIT 20", nativeQuery = true)
-	List<Product> selectListBestSeller();
-
-//	@Query(value = "SELECT * FROM product p ORDER BY p.sellcount DESC LIMIT 20", nativeQuery = true)
-//	List<Product> selectListBestSeller();
-
-
-	// ============================================================================================================================
-
-//	@Query(nativeQuery = true, value = "")
-//	List<Product> selectWithReview();
-
 
 
 }

@@ -36,6 +36,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	public List<Product> selectListBestSeller() {
+		return repository.selectListBestSeller();
+	}
+
+	@Override
 	public PageResultDTO<Product> selectListPageNation(PageRequestDTO requestDTO) {
 		Pageable pageable = requestDTO.getPageable(Sort.by("title").ascending());
 		Page<Product> result = repository.findAll(pageable);
@@ -80,10 +85,7 @@ public class ProductServiceImpl implements ProductService {
 		return repository.selectListLimitedPrice(domestic, category, genre, minprice, maxprice);
 	}
 
-	@Override // 8.베스트셀러
-	public List<Product> selectListBestSeller() {
-		return repository.selectListBestSeller();
-	}
+
 
 
 	// [3] 기본 내장 메소드.=============================================================================================

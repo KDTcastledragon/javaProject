@@ -14,6 +14,8 @@ public interface ProductService {
 
 	public List<Product> selectAllList();
 
+	public List<Product> selectListBestSeller(); // 8. 베스트셀러
+
 	PageResultDTO<Product> selectListPageNation(PageRequestDTO requestDTO);
 
 	// [2] 리액트 메소드.==================================================================================
@@ -32,7 +34,7 @@ public interface ProductService {
 
 	public List<Product> selectListLimitedPrice(String domestic, String category, String genre, int minprice, int maxprice); // 7.제한가격검색
 
-	public List<Product> selectListBestSeller(); // 8. 베스트셀러
+
 
 
 	// [3] 기본 메소드.============================================================================================
