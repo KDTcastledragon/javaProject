@@ -60,17 +60,6 @@ const ProductListPage = () => {
           console.log(`resposne data : `, response.data);
           alert(`requestToServer : 조건에 해당하는 도서가 없습니다.`);
 
-          // // const prevSearchParams = new URLSearchParams(urlString.search);
-
-          // const newURL = `/ProductListPage?${prevSearchParams.toString()}`;
-
-          // // if (urlString.search !== `?${prevSearchParams.toString()}`) {
-          //   // urlNavigate(newURL);
-          // // }
-          // urlNavigate(newURL);
-
-          // //==============================
-
         }
       }).catch((err) => {
         alert(`requestToServer 서버연결 실패 => ${err.message}`);
