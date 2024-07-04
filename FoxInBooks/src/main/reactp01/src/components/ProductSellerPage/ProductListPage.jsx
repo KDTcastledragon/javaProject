@@ -67,12 +67,8 @@ const ProductListPage = () => {
   };
 
   useEffect(() => {
-
-    urlNavigate
-      (`/ProductListPage?domestic=${urlParams.get('domestic')}&category=${urlParams.get('category')}&genre=${urlParams.get('genre')}&minprice=${limitedMinPrice}&maxprice=${limitedMaxPrice}`);
-
     requestToServer
-      (`/product/${getMapping}?domestic=${urlParams.get('domestic')}&category=${urlParams.get('category')}&genre=${urlParams.get('genre')}&minprice=${limitedMinPrice}&maxprice=${limitedMaxPrice}`)
+      (`/product/bestSeller`)
 
   }, [])
 
