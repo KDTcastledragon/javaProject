@@ -4,7 +4,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { book_list_context } from '../../../../Data/ProductOriginData_context'
 
-// ============================================첫번째 bestSeller ===================================================================
+// ============================================첫번째 selectAllList ===================================================================
 function SlideItemBestSeller() {
     const [bestSellerList, setBestSellerList] = useState([]);
 
@@ -13,7 +13,7 @@ function SlideItemBestSeller() {
             .get('/product/bestSeller')
             .then((response) => {
                 setBestSellerList(response.data.slice(0, 5));
-                console.log(`베스트셀러 가져오기 성공 =>`, response.data);
+                console.log(`베스트셀러 기본 =>`, response.data);
             })
             .catch((err) => {
                 alert(`베스트셀러 가져오기 실패 => ${err.message}`);
@@ -76,13 +76,13 @@ function SlideAllItem() {
 
     useEffect(() => {
         axios
-            .get('/product/selectAllList')
+            .get('/product/bestSeller')
             .then((response) => {
-                setProductList(response.data);
-                console.log(`모든 상품 가져와서 20개로 썰기 =>`, response.data);
+                setProductList(response.data.slice(0, 20));
+                console.log(`product_베스트적용 =>`, response.data);
             })
             .catch((err) => {
-                alert(`모든 상품 가져와서 20개로 썰기 실패 => ${err.message}`);
+                alert(`product_베스트적용 실패 : => ${err.message}`);
             });
     }, []);
 
@@ -149,14 +149,14 @@ function BookItem() {
                 console.log(`도서용품 =>`, response.data);
             })
             .catch((err) => {
-                alert(`서버연결 실패 => ${err.message}`);
+                alert(` selectAllList 실패 => ${err.message}`);
             });
     }, []);
 
     const Book_item = ({ product_code, product_protype, image, title, price }) => {
         return (
             <>
-                {product_protype == 2 &&
+                {product_protype == 1 &&
                     <div className='slide_list_container'>
                         <ul className="index_slide_table01_list_size">
                             <li>
