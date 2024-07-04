@@ -28,10 +28,10 @@ public class ProductController {
 
 	ProductService productservice;
 
-	@GetMapping("/productlists")
-	public void productlists(Model model) {
-		model.addAttribute("adminProductList", productservice.selectAllList());
-	}
+//	@GetMapping("/productlists")
+//	public void productlists(Model model) {
+//		model.addAttribute("adminProductList", productservice.selectAllList());
+//	}
 
 	// ==========================================================================================
 

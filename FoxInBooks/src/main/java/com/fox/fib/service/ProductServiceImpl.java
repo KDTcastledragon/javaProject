@@ -31,8 +31,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> selectAllList() {
-		return repository.selectAllList();
+	public List<Product> terran() {
+		return repository.terran();
 	}
 
 	@Override

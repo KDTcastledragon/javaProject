@@ -12,7 +12,7 @@ public interface ProductService {
 
 	public List<Product> selectList();
 
-	public List<Product> selectAllList();
+	public List<Product> terran();
 
 	public List<Product> selectListBestSeller(); // 8. 베스트셀러
 

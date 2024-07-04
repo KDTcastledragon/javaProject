@@ -30,18 +30,18 @@ public class RestProductController {
 
 	// ==========================================================================================
 
-	@GetMapping("/selectAllList")
-	public ResponseEntity<?> selectAllList() {
+	@GetMapping("/terran")
+	public ResponseEntity<?> terran() {
 		try {
-			List<Product> selectedAllList = productservice.selectListBestSeller();
+			List<Product> terran = productservice.terran();
 
-			log.info(" selectAllList 확인 : " + selectedAllList.toString());
+			log.info(" terran 확인 : " + terran.toString());
 
-			return ResponseEntity.ok(selectedAllList);
+			return ResponseEntity.ok(terran);
 
 		} catch (Exception e) {
-			log.info(" AllList_FAIL : " + e.toString());
-			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("AllList ERROR");
+			log.info(" terran : " + e.toString());
+			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("terran ERROR");
 
 		}
 	}
