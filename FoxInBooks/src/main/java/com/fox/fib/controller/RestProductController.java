@@ -30,18 +30,19 @@ public class RestProductController {
 
 	// ==========================================================================================
 
-	@GetMapping("/terran")
-	public ResponseEntity<?> terran() {
+	@GetMapping("/bestSeller3")
+	public ResponseEntity<?> bestSeller3() {
+
 		try {
-			List<Product> terran = productservice.terran();
+			List<Product> resultList3 = productservice.selectListBestSeller();
 
-			log.info(" terran 확인 : " + terran.toString());
+			log.info(" bestSeller3 확인 : " + resultList3.toString());
 
-			return ResponseEntity.ok(terran);
+			return ResponseEntity.ok(resultList3);
 
 		} catch (Exception e) {
-			log.info(" terran : " + e.toString());
-			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("terran ERROR");
+			log.info(" best3_FAIL : " + e.toString());
+			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("bestSeller3 ERROR");
 
 		}
 	}

@@ -143,7 +143,7 @@ function BookItem() {
 
     useEffect(() => {
         axios
-            .get('/product/terran')
+            .get('/product/bestSeller3')
             .then((response) => {
                 setProductList(response.data);
                 console.log(`도서용품 =>`, response.data);
