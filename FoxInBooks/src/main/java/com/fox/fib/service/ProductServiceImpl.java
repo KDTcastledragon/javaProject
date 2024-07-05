@@ -30,15 +30,19 @@ public class ProductServiceImpl implements ProductService {
 		return repository.findAll();
 	}
 
+	// ================================================================================================================================
+
 	@Override
-	public List<Product> terran() {
-		return repository.terran();
+	public List<Product> zerg() {
+		return repository.zerg();
 	}
 
 	@Override
 	public List<Product> selectListBestSeller() {
 		return repository.selectListBestSeller();
 	}
+
+	// ================================================================================================================================
 
 	@Override
 	public PageResultDTO<Product> selectListPageNation(PageRequestDTO requestDTO) {

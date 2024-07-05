@@ -15,10 +15,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	Page<Product> findAll(Pageable pageable);
 
 	@Query("select p from Product p")
-	List<Product> terran();
-
-//	@Query(value = "SELECT * FROM product p", nativeQuery = true)
-//	List<Product> terran();
+	List<Product> zerg();
 
 	@Query(value = "SELECT * FROM product p WHERE p.protype = 1 ORDER BY p.sellcount DESC LIMIT 20", nativeQuery = true)
 	List<Product> selectListBestSeller();

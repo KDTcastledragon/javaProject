@@ -12,9 +12,9 @@ public interface ProductService {
 
 	public List<Product> selectList();
 
-	public List<Product> terran();
+	public List<Product> zerg();
 
-	public List<Product> selectListBestSeller(); // 8. 베스트셀러
+	public List<Product> selectListBestSeller();
 
 	PageResultDTO<Product> selectListPageNation(PageRequestDTO requestDTO);
 

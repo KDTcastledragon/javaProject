@@ -143,13 +143,13 @@ function BookItem() {
 
     useEffect(() => {
         axios
-            .get('/product/bestSeller3')
+            .get('/product/zerg')
             .then((response) => {
                 setProductList(response.data);
-                console.log(`도서용품 =>`, response.data);
+                console.log(`zerg =>`, response.data);
             })
             .catch((err) => {
-                alert(` terran 실패 => ${err.message}`);
+                alert(` zerg 실패 => ${err.message}`);
             });
     }, []);
 

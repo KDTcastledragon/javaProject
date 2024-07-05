@@ -30,19 +30,19 @@ public class RestProductController {
 
 	// ==========================================================================================
 
-	@GetMapping("/bestSeller3")
-	public ResponseEntity<?> bestSeller3() {
+	@GetMapping("/zerg")
+	public ResponseEntity<?> zerg() {
 
 		try {
-			List<Product> resultList3 = productservice.selectListBestSeller();
+			List<Product> resultList3 = productservice.zerg();
 
-			log.info(" bestSeller3 확인 : " + resultList3.toString());
+			log.info(" zerg 확인 : " + resultList3.toString());
 
 			return ResponseEntity.ok(resultList3);
 
 		} catch (Exception e) {
-			log.info(" best3_FAIL : " + e.toString());
-			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("bestSeller3 ERROR");
+			log.info(" zerg : " + e.toString());
+			return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("zerg ERROR");
 
 		}
 	}
